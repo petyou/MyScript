@@ -91,31 +91,52 @@ def send_email(content, subject):
     sender.password = "Sgq199112180059"
     sender.tag = subject
     sender.content = content
-
-    #sender.to_list = ["shigaoqiang@caiyikeji.com", "guojingjing@caiyikeji.com", "zhouyunyun@caiyikeji.com","yanxingxing@caiyikeji.com"]
-    sender.to_list = ["shigaoqiang@caiyikeji.com"]
-
-    # sender.cc_list = ["liaodao@caiyikeji.com"]
+    sender.to_list = ["shigaoqiang@caiyikeji.com", "guojingjing@caiyikeji.com", "zhouyunyun@caiyikeji.com","yanxingxing@caiyikeji.com"]
+    sender.cc_list = ["liaodao@caiyikeji.com"]
     sender.send()
 
 
-
-def main():
+def main_command():
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", "--version", help="版本号", metavar="version")
     parser.add_argument("-n", "--name", help="包名", metavar="name")
     parser.add_argument("-m", "--desc", help="自动发送提测邮件, 必选携带参数包括 -v 版本号 -n 包名", metavar="description")
     options = parser.parse_args()
 
+    name = options.name
+    version = options.version
+
     # 邮件内容
-    content = create_content(options.name, options.version)
+    content = create_content(name, version)
 
     # 邮件主题
-    subject = create_subject(options.name, options.version)
+    subject = create_subject(name, version)
+
+    print(subject)
+    print(content)
 
     # 发送
-    send_email(subject, content)
+    send_email(content, subject)
+
+
+def main_pycharm():
+    name = "料到极速"
+    version = "4.0.1"
+
+    # 邮件内容
+    content = create_content(name, version)
+
+    # 邮件主题
+    subject = create_subject(name, version)
+
+    print(subject)
+    print(content)
+
+    # 发送
+    # send_email(content, subject)
 
 
 if __name__ == '__main__':
-    main()
+    #main_command()
+    #main_pycharm()
+    pass

@@ -75,7 +75,7 @@ def create_subject(name, version):
 # 拼接邮件内容
 def create_content(name, version):
     # app下载地址
-    load_url = 'https://downapp.9188inc.com/app/ios/liaodao/insideTest/index.html'
+    load_url = 'https://testdownapp.liaodaotiyu.com/app/ios/liaodao/insideTest/index.html'
 
     # 设计稿地址
     design_url = 'http://lottery.gs.9188.com/liaodao/pm/dash/#g=1&p=native'
@@ -112,31 +112,14 @@ def main_command():
     # 邮件主题
     subject = create_subject(name, version)
 
-    print(subject)
-    print(content)
+    if not name is None and not version is None:
+        print(subject + '\n' + content)
+        
+        send_email(content, subject)
 
-    # 发送
-    send_email(content, subject)
-
-
-def main_pycharm():
-    name = "料到极速"
-    version = "4.0.1"
-
-    # 邮件内容
-    content = create_content(name, version)
-
-    # 邮件主题
-    subject = create_subject(name, version)
-
-    print(subject)
-    print(content)
-
-    # 发送
-    # send_email(content, subject)
+    else:
+        print("自动发送提测邮件, 必选携带参数包括 -v 版本号 -n 包名")
 
 
 if __name__ == '__main__':
-    #main_command()
-    #main_pycharm()
-    pass
+    main_command()

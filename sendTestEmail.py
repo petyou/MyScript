@@ -114,7 +114,7 @@ def main_command():
 
     if not name is None and not version is None:
         print(subject + '\n' + content)
-        
+
         send_email(content, subject)
 
     else:

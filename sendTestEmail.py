@@ -76,10 +76,10 @@ def create_subject(name, version):
 # 拼接邮件内容
 def create_content(name, version):
     # app下载地址
-    load_url = 'https://testdownapp.liaodaotiyu.com/app/ios/liaodao/insideTest/index.html'
+    load_url = 'https://testdownapp.liaodaotiyu.com/app/iOS/liaodao/downloadPlist/index.html'
 
     # 设计稿地址
-    design_url = 'http://lottery.gs.9188.com/liaodao/pm/dash/#g=1&p=native'
+    design_url = 'http://work.gs.liaodaotiyu.com/liaodao/pm/dash/#g=1&p=native'
 
     content = "Dear all:\n%siOS端已经完成开发,现提交测试.\napp下载地址:%s\n原型稿和UI设计稿:%s" % (name, load_url, design_url)
     return content
@@ -89,10 +89,10 @@ def create_content(name, version):
 def send_email(content, subject):
     sender = MyEmail()
     sender.user = "shigaoqiang@caiyikeji.com"
-    sender.password = "Sgq199112180059"
+    sender.password = "Sgq1991121800591"
     sender.tag = subject
     sender.content = content
-    sender.to_list = ["shigaoqiang@caiyikeji.com", "guojingjing@caiyikeji.com", "zhouyunyun@caiyikeji.com","yanxingxing@caiyikeji.com"]
+    sender.to_list = ["shigaoqiang@caiyikeji.com", "zhouyunyun@caiyikeji.com"]
     sender.cc_list = ["liaodao@caiyikeji.com"]
     sender.send()
 

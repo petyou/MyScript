@@ -13,12 +13,24 @@ def codeCreate(hPath):
     while each:
         whole_string += each
 
+        if each.find("import") != -1:
+            each = data.readline()
+            continue
+
         if each.find("=") != -1:
             name = each.split("=")[0]
             name = name.strip()
             my_property_list.append(name)
+            each = data.readline()
+            continue
+
+        match = re.search('"(.*?)"', each)
+        if match != None :
+            name = match.group(1)
+            my_property_list.append(name)
 
         each = data.readline()
+        continue
 
     property_string = ''
 
@@ -39,6 +51,7 @@ def codeCreate(hPath):
 
 if __name__ == "__main__":
 
+    '''
     parser = argparse.ArgumentParser()
     parser.add_argument("-path", "--path", help=".h的全路径", metavar="path")
     options = parser.parse_args()
@@ -50,4 +63,6 @@ if __name__ == "__main__":
         print("Done")
     else:
         print(".h路径为空 使用 -path带上路径")
-
+    '''
+    path = r"/Users/wen/tips-ios2/Liaodao/Classes/TeamData/TeamDetail/Overview/Model/LDTeamHonorCellItem.h"
+    codeCreate(path)

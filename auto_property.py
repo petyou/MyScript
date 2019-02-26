@@ -51,7 +51,6 @@ def codeCreate(hPath):
 
 if __name__ == "__main__":
 
-    '''
     parser = argparse.ArgumentParser()
     parser.add_argument("-path", "--path", help=".h的全路径", metavar="path")
     options = parser.parse_args()
@@ -63,6 +62,4 @@ if __name__ == "__main__":
         print("Done")
     else:
         print(".h路径为空 使用 -path带上路径")
-    '''
-    path = r"/Users/wen/tips-ios2/Liaodao/Classes/TeamData/TeamDetail/Overview/Model/LDTeamHonorCellItem.h"
-    codeCreate(path)
+

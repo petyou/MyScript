@@ -58,8 +58,6 @@ def codeCreate(hPath):
 
 
 if __name__ == "__main__":
-    codeCreate("/Users/wen/luck-ios/SwiftConstellation/Manager/UserManager/CLUser.swift")
-    '''
     parser = argparse.ArgumentParser()
     parser.add_argument("-path", "--path", help=".h的全路径", metavar="path")
     options = parser.parse_args()
@@ -71,4 +69,4 @@ if __name__ == "__main__":
         print("Done")
     else:
         print(".h路径为空 使用 -path带上路径")
-    '''
+
